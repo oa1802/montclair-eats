@@ -1,0 +1,44 @@
+Table "employees" {
+  "employee_id" INT [primary key, increment]
+  "type" VARCHAR(255)
+  "user_id" INT [ref: - users.user_id]
+}
+
+Table "users" {
+  "user_id" INT [primary key, increment]
+  "first_name" VARCHAR(255)
+  "last_name" VARCHAR(255)
+  "email" VARCHAR(255)
+  "password" VARCHAR(255)
+}
+
+Table "carts" {
+  "cart_id" INT [primary key, increment]
+  "status" VARCHAR(255)
+  "user_id" INT [ref: > users.user_id]
+  "delivery_id" INT [ref: - deliveries.delivery_id]
+}
+
+Table "deliveries" {
+  "delivery_id" INT [primary key, increment]
+  "delivery_time" DATETIME
+}
+
+Table "inventory" {
+  "inventory_id" INT [primary key, increment]
+  "product_id" VARCHAR(255) [ref: > products.product_id]
+  "cart_id" VARCHAR(255) [ref: > carts.cart_id]
+  "order_id" VARCHAR(255) [ref: > orders.order_id]
+}
+
+Table "products" {
+  "product_id" INT [primary key, increment]
+  "name" VARCHAR(255)
+  "price" DECIMAL(13,2)
+  "type" VARCHAR(255)
+}
+
+Table "orders" {
+  "order_id" INT [primary key, increment]
+  "user_id" VARCHAR(255) [ref: > users.user_id]
+}
