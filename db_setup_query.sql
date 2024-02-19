@@ -78,7 +78,10 @@ VALUES
 INSERT INTO users
 	(user_id, first_name, last_name, email, password)
 VALUES
-	(NULL, "John", "Smith", "jsmith@example.com", "temp_password");
+	(NULL, "Jane", "Smith", "janesmith@example.com", "temp_password"),
+	(NULL, "John", "Smith", "johnsmith@example.com", "temp_password"),
+	(NULL, "John", "Doe", "johndoe@example.com", "temp_password"),
+	(NULL, "Jane", "Doe", "janedoe@example.com", "temp_password");
 
 INSERT INTO products
 	(product_id, name, price, type)
